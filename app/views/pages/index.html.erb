@@ -1,3 +1,5 @@
-<h1>Welcome</h1>
+<% title 'Welcome To Event Manager' %>
 <p>This is the main page of my app</p>
 <p>It is <%= Time.current %>now</p>
+
+<%= render 'aside', link: @link %>
