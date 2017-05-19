@@ -58,6 +58,8 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    email_validator (1.6.0)
+      activemodel
     erubi (1.6.0)
     execjs (2.7.0)
     faker (1.7.3)
@@ -168,6 +170,7 @@ DEPENDENCIES
   bootstrap (~> 4.0.0.alpha6)
   byebug
   coffee-rails (~> 4.2)
+  email_validator (~> 1.6)
   faker (~> 1.7, >= 1.7.3)
   jbuilder (~> 2.5)
   jquery-rails
