@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  get '/about', to: 'pages#about'
+
+  resources :categories
+  
+  resources :pages do 
+  	collection { get 'about'}
+  end
+  
   root 'pages#index'
 end
