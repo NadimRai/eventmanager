@@ -1,4 +1,9 @@
 class CategoriesController < ApplicationController
+
+  def index
+    @categories =  Category.order(created_at: :desc)
+  end
+  
   def new
     @category = Category.new
   end
