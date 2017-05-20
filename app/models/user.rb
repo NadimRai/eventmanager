@@ -2,11 +2,12 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  email      :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  email           :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string
 #
 # Indexes
 #
@@ -22,9 +23,20 @@ class User < ApplicationRecord
 
   	before_save :normalize_name
 
+  	has_secure_password
+
+  	 def self.from_email_password(email, password)
+    	user = self.find_by(email: email.downcase)
+    	user && user.authenticate(password)
+  	end
+
   private
 
 	  def normalize_name
 	    self.name.gsub! /[^\w\s]/, ''
 	  end
+
+	  def normalize_email
+    	self.email.downcase!
+  	  end
 end
