@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :sessions
+  resource :enrollments, only: [:create, :destroy]
+
+  resource :sessions, only: [:new, :create, :destroy]
+
   resources :users
   
   resources :categories do 
