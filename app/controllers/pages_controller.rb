@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-	#layout 'admin', {only: [:index]}
+	skip_before_action :authenticate_user!
+	
 	def index
 		
 	end

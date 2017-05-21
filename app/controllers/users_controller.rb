@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:new, :create]
+  before_action :require_no_authentication!, only: [:new, :create]
+
+  include SessionsConcern
   def new
     @user = User.new
   end

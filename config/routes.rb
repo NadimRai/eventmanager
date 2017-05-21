@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   	collection { get 'about'}
   end
   
-  root 'pages#index'
+  root 'categories#index'
 end

@@ -33,6 +33,10 @@ class Event < ApplicationRecord
 
   validate :ends_at_greater_than_starts_at
 
+  def owned_by?(user)
+    self.owner == user
+  end
+
   def participant?(user)
     self.users.include? user
   end
