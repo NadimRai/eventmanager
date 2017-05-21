@@ -49,6 +49,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'faker', '~> 1.7', '>= 1.7.3'
+  gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
