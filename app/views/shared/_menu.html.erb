@@ -1,12 +1,16 @@
 <% content_for :menu do %>
-  <nav class="navbar navbar-inverse bg-inverse">
-    <%= link_to 'BraveCoder', root_path, class: 'navbar-brand' %>
+  <nav class="navbar navbar-inverse bg-inverse" id="main-menu">
+    <%= link_to root_path, class: 'navbar-brand' do %>
+      <i class="icon-home"></i>
+      BraveCoder
+    <% end %>
     <ul class="navbar-nav mr-auto">
-      <%= nav_item 'home', root_path, page %>
-      <%= nav_item 'category', categories_path, page %>
+      <%= nav_item 'categories', categories_path, page %>
       <%= nav_item 'about', about_pages_path, page %>
-      <%= nav_item 'register', new_user_path, page %>
-      <%= nav_item 'log in', new_session_path, page %>
+      <% unless user_signed_in? %>
+        <%= nav_item 'register', new_user_path, page %>
+        <%= nav_item 'log in', new_session_path, page %>
+      <% end %>
     </ul>
   </nav>
 <% end %>
