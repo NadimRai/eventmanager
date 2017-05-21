@@ -12,4 +12,9 @@ module ApplicationHelper
       link_to title.titleize, url, opts.merge!({class: 'nav-link'})
     end
   end
+
+  def gravatar_for(user:, size: '60', opts: {})
+    hash = Digest::MD5.hexdigest user.email
+    image_tag "https://www.gravatar.com/avatar/#{hash}?s=#{size}", opts
+  end
 end
