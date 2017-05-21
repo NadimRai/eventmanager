@@ -10,6 +10,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def check_admin!
+    unless user_signed_in? && current_user.admin?
+      flash[:danger] = 'You are not allowed to perform this action...'
+      redirect_back fallback_location: root_path
+    end
+  end
+
   def require_no_authentication!
     if user_signed_in?
       flash[:danger] = "You are already logged in!"

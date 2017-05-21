@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :check_admin!, except: [:show, :index]
   before_action :set_category!, only: [:edit, :update, :show, :destroy]
+
 
   def destroy
     @category.destroy
