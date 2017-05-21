@@ -12,6 +12,7 @@
 #
 # Indexes
 #
+#  index_users_on_admin  (admin)
 #  index_users_on_email  (email) UNIQUE
 #
 
@@ -25,6 +26,8 @@ class User < ApplicationRecord
   	validates :email, presence: true, uniqueness: true, email: true
 
   	before_save :normalize_name
+
+    scope :admins, -> { where(admin: true)}
 
   	has_secure_password
 
